@@ -25,7 +25,7 @@ class tools:
 
         import pandas as pd
         import random as r
-        
+
         # ========================== Parte I ==========================
         # Definicion de las listas
         abcdario = [
@@ -66,7 +66,7 @@ class tools:
         for i in range(n_ventas):
             # Zona de definicion de variables
             producto = r.choice(lineas)
-            clave = r.choice(abcdario) + r.choice(abcdario) + r.choice(abcdario) + '-' + str(r.randint(1, 9)) + str(r.randint(1, 9)) + str(r.randint(1, 9)) 
+            clave = r.choice(abcdario) + r.choice(abcdario) + r.choice(abcdario) + '-' + str(r.randint(1, 9)) + str(r.randint(1, 9)) + str(r.randint(1, 9))
             cantidad = r.randint(1, 50)
             precio = round(r.randint(1, 10000) * r.random(), 2)
             total = round(precio * cantidad, 2)
@@ -97,7 +97,7 @@ class tools:
         # ========================== Parte V ==========================
         # Creamos el dataframe con la funcion de pandas pd.DataFrame()
         df_ventas = pd.DataFrame(dict_pre_ventas)
-    
+
         # Retornamos el dataframe
         return df_ventas
 
@@ -123,7 +123,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas.db')
+        conn = sql.connect('ventas_pruebas.db')
         # Subimos el dataframe a la base de datos
         df.to_sql('ventas', conn, if_exists='replace', index=False)
         # Guardamoscambios y cerramos la conexion
@@ -156,7 +156,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas.db')
+        conn = sql.connect('ventas_pruebas.db')
         # Subimos el dataframe a la base de datos
         df.to_sql('ventas', conn, if_exists='append', index=False)
         # Guardamoscambios y cerramos la conexion
@@ -164,7 +164,7 @@ class tools:
         conn.close()
 
         print("Dataframe subido correctamente a la base de datos.")
-            
+
 
     # Como un extra podemos definir una función para hacer consultas a nuestra tabla
     def consultar_bbdd(query):
@@ -189,7 +189,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas.db')
+        conn = sql.connect('ventas_pruebas.db')
         # Hacemos una consulta a la tabla ventas
         consulta = pd.read_sql_query(query, conn)
         # Cerramos la conexion
