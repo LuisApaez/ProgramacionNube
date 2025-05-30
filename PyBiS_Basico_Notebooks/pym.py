@@ -123,7 +123,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas_pruebas.db')
+        conn = sql.connect('ventas.db')
         # Subimos el dataframe a la base de datos
         df.to_sql('ventas', conn, if_exists='replace', index=False)
         # Guardamoscambios y cerramos la conexion
@@ -156,7 +156,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas_pruebas.db')
+        conn = sql.connect('ventas.db')
         # Subimos el dataframe a la base de datos
         df.to_sql('ventas', conn, if_exists='append', index=False)
         # Guardamoscambios y cerramos la conexion
@@ -189,7 +189,7 @@ class tools:
         import pandas as pd
 
         # Creamos la conexion o la base de datos
-        conn = sql.connect('ventas_pruebas.db')
+        conn = sql.connect('ventas.db')
         # Hacemos una consulta a la tabla ventas
         consulta = pd.read_sql_query(query, conn)
         # Cerramos la conexion
